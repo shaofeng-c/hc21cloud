@@ -17,6 +17,11 @@
 
     <dependencies>
         <dependency>
+            <groupId>com.chansf.hc21cloud</groupId>
+            <artifactId>hc21cloud-common-base</artifactId>
+            <version>${hc21cloud.version}</version>
+        </dependency>
+        <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-web</artifactId>
             <version>5.1.9.RELEASE</version>
