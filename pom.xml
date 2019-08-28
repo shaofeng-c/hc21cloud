@@ -10,6 +10,8 @@
     <version>1.0.0</version>
     <modules>
         <module>hc21cloud-common</module>
+        <module>hc21cloud-generator</module>
+        <module>hc21cloud-gateway</module>
     </modules>
 
     <properties>
@@ -44,6 +46,13 @@
             <artifactId>guava</artifactId>
             <version>${guava.version}</version>
         </dependency>
+        <!-- fastjson begin-->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>${fastjson.version}</version>
+        </dependency>
+        <!-- fastjson end-->
         <!--guava相关依赖 end-->
     </dependencies>
     <dependencyManagement>
@@ -147,13 +156,6 @@
                 <version>${jjwt.version}</version>
             </dependency>
             <!-- jwt end-->
-            <!-- fastjson begin-->
-            <dependency>
-                <groupId>com.alibaba</groupId>
-                <artifactId>fastjson</artifactId>
-                <version>${fastjson.version}</version>
-            </dependency>
-            <!-- fastjson end-->
             <!--  httpClient 访问外部接口依赖 begin-->
             <dependency>
                 <groupId>org.apache.httpcomponents</groupId>

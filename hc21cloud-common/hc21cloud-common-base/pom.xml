@@ -11,11 +11,4 @@
 
     <artifactId>hc21cloud-common-base</artifactId>
 
-    <dependencies>
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>fastjson</artifactId>
-        </dependency>
-    </dependencies>
-
 </project>
