@@ -9,12 +9,10 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>hc21cloud-common</artifactId>
+    <artifactId>hc21cloud-modules</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>hc21cloud-common-core</module>
-        <module>hc21cloud-common-base</module>
-        <module>hc21cloud-common-config</module>
+        <module>hc21cloud-umps</module>
     </modules>
 
 

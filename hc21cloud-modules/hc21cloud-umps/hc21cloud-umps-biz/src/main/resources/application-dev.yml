@@ -1,0 +1,38 @@
+# 开发环境配置
+server:
+  # 服务端口
+  port: 8092
+
+logging:
+  config: classpath:log4j2_dev.xml
+
+spring:
+  # nacos 配置
+  cloud:
+    nacos:
+      # 服务发现注册
+      discovery:
+        server-addr: 127.0.0.1:8848
+  datasource:
+    master:
+      url: jdbc:mysql://localhost:3306/hc21cloud_umps?useUnicode=true&characterEncoding=UTF8&allowMultiQueries=true
+      username: root
+      password: root
+      driver-class-name: com.mysql.jdbc.Driver
+      type: com.zaxxer.hikari.HikariDataSource
+    custom:
+    - key: mdc
+      url: jdbc:mysql://127.0.0.1:3306/paascloud_mdc?useUnicode=true&characterEncoding=UTF-8
+      username: root
+      password: root
+      driver-class-name: com.mysql.jdbc.Driver
+      type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      minimum-idle: 5
+      maximum-pool-size: 15
+      auto-commit: true
+      idle-timeout: 30000
+      pool-name: DatebookHikariCP
+      max-lifetime: 1800000
+      connection-timeout: 30000
+      connection-test-query: SELECT 1

@@ -11,7 +11,7 @@ public class BusinessException extends RuntimeException {
 
     private static final long serialVersionUID = 7022053922586265212L;
 
-    private int code;
+    protected int code;
 
     public BusinessException() {
     }

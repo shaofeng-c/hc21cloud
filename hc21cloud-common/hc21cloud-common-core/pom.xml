@@ -89,6 +89,16 @@
             <groupId>com.zaxxer</groupId>
             <artifactId>HikariCP</artifactId>
         </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.chansf.hc21cloud</groupId>
+            <artifactId>hc21cloud-common-config</artifactId>
+            <version>1.0.0</version>
+            <scope>compile</scope>
+        </dependency>
         <!-- aspectj-->
     </dependencies>
 

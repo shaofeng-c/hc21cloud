@@ -3,19 +3,19 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>hc21cloud-master</artifactId>
+        <artifactId>hc21cloud-umps</artifactId>
         <groupId>com.chansf.hc21cloud</groupId>
         <version>1.0.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>hc21cloud-common</artifactId>
-    <packaging>pom</packaging>
-    <modules>
-        <module>hc21cloud-common-core</module>
-        <module>hc21cloud-common-base</module>
-        <module>hc21cloud-common-config</module>
-    </modules>
+    <artifactId>hc21cloud-umps-api</artifactId>
 
-
+    <dependencies>
+        <dependency>
+            <groupId>com.chansf.hc21cloud</groupId>
+            <artifactId>hc21cloud-common-core</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+    </dependencies>
 </project>

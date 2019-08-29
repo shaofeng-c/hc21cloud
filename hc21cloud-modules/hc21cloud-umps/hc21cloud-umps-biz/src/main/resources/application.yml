@@ -1,0 +1,23 @@
+spring:
+  profiles:
+    active: dev
+  application:
+    name: @pom.artifactId@
+
+hc21cloud:
+  swagger:
+    base-package: com.hc21cloud.umps
+    title: hc21cloud通用用户权限模块
+    version: @pom.version@
+    description: hc21cloud通用用户权限模块
+    contact:
+      name: shaofeng
+      url:
+      email: 122107570@qq.com
+
+# MyBatis
+mybatis:
+  # 自动扫描包路径给类配置别名
+  typeAliasesPackage: com.hc21cloud.umps
+  # 配置mapper的扫描，找到所有的mapper.xml映射文件
+  mapperLocations: classpath*:mapper/*Mapper.xml

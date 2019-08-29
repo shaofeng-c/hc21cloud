@@ -10,8 +10,9 @@
     <version>1.0.0</version>
     <modules>
         <module>hc21cloud-common</module>
-        <module>hc21cloud-generator</module>
         <module>hc21cloud-gateway</module>
+        <module>hc21cloud-modules</module>
+        <module>hc21cloud-generator</module>
     </modules>
 
     <properties>

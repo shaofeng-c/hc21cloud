@@ -37,6 +37,8 @@ public class GlobalConstants {
     public static final String LOCALHOST_IP_16 = "0:0:0:0:0:0:0:1";
     public static final int MAX_IP_LENGTH = 15;
 
+    public static final String ROOT_PREFIX = "hc21cloud";
+
     public interface Number {
         int THOUSAND_INT = 1000;
         int HUNDRED_INT = 100;
