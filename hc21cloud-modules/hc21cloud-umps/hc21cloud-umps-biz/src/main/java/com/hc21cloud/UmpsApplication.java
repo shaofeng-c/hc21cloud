@@ -1,6 +1,6 @@
 package com.hc21cloud;
 
-import com.hc21cloud.generator.config.GenDynamicDataSourceRegister;
+import com.hc21cloud.umps.register.UmpsDynamicDataSourceRegister;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -10,8 +10,6 @@ import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Arrays;
-
 /**
  * 代码生成模块启动类
  *
@@ -19,24 +17,10 @@ import java.util.Arrays;
  */
 @SpringBootApplication
 @EnableDiscoveryClient
-@Import(GenDynamicDataSourceRegister.class)
-public class GenApplication {
+@Import(UmpsDynamicDataSourceRegister.class)
+public class UmpsApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(GenApplication.class, args);
-    }
-
-
-    @RestController
-    static class TestController {
-        @Autowired
-        Environment env;
-
-        @GetMapping("/test")
-        public String test() {
-            String activeProfiles = env.getProperty("gen.author");
-            System.out.println(activeProfiles);
-            return activeProfiles;
-        }
+        SpringApplication.run(UmpsApplication.class, args);
     }
 }
