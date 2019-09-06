@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="${package}.mapper.${className}Mapper">
+
+    <resultMap type="${className}" id="BaseResult">
+        #foreach ($column in $columns)
+            <result property="${column.lowAttrName}" column="${column.columnName}"/>
+        #end
+    </resultMap>
+
+    <sql id="BaseColumns">
+        SELECT#foreach($column in $columns) $column.columnName#if($velocityCount != $columns.size()),#end#end FROM ${tableName}
+    </sql>
+
+    <select id="selectList" resultMap="BaseResult">
+        <include refid="BaseColumns"/>
+        <where>
+            1 = 1
+            #foreach($column in $columns)
+                <if test="$column.lowAttrName != null #if($column.attrType ==
+                    'String' ) and $column.lowAttrName.trim() != '' #end">
+                    AND $column.columnName = #{$column.lowAttrName}
+                </if>
+            #end
+        </where>
+    </select>
+
+    <select id="selectById" resultMap="BaseResult">
+        <include refid="BaseColumns"/>
+        WHERE ${primaryKey.columnName} = #{${primaryKey.lowAttrName}}
+    </select>
+
+    <insert id="insert" parameterType="${className}"#if($primaryKey.extra == 'auto_increment')
+            useGeneratedKeys="true" keyProperty="$primaryKey.lowAttrName"#end>
+        INSERT INTO ${tableName}
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            #foreach($column in $columns)
+                #if($column.columnName != $primaryKey.columnName || $primaryKey.extra != 'auto_increment')
+                    #if($column.lowAttrName !='updateBy' && $column.lowAttrName != 'updateTime')
+                        <if test="$column.lowAttrName != null #if($column.attrType ==
+                            'String' ) and $column.lowAttrName != '' #end ">
+                            $column.columnName,
+                        </if>
+                    #end
+                #end
+            #end
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            #foreach($column in $columns)
+                #if($column.columnName != $primaryKey.columnName || $primaryKey.extra != 'auto_increment')
+                    #if($column.lowAttrName !='updateBy' && $column.lowAttrName != 'updateTime')
+                        <if test="$column.lowAttrName != null #if($column.attrType ==
+                            'String' ) and $column.lowAttrName != '' #end ">
+                            #{$column.lowAttrName},
+                        </if>
+                    #end
+                #end
+            #end
+        </trim>
+    </insert>
+
+    <update id="update" parameterType="${className}">
+        UPDATE ${tableName}
+        <set>
+        #foreach($column in $columns)
+            #if($column.columnName != $primaryKey.columnName && $column.lowAttrName !=
+                'createBy' && $column.lowAttrName != 'createTime')
+                <if test="$column.lowAttrName != null #if($column.attrType ==
+                    'String' ) and $column.lowAttrName != '' #end ">
+                    $column.columnName = #{$column.lowAttrName},
+                </if>
+            #end
+        #end
+        </set>
+        WHERE ${primaryKey.columnName} = #{${primaryKey.lowAttrName}}
+    </update>
+
+    <delete id="deleteById" parameterType="java.lang.${primaryKey.attrType}">
+        DELETE FROM ${tableName} WHERE ${primaryKey.columnName} = #{${primaryKey.lowAttrName}}
+    </delete>
+
+</mapper>

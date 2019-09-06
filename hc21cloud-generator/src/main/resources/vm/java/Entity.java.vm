@@ -1,0 +1,54 @@
+package ${package}.entity;
+
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+import com.hc21cloud.common.core.support.base.BaseEntity;
+#foreach ($column in $columns)
+#if($column.attrType == 'Date' && ($column.lowAttrName != 'createTime' && $column.lowAttrName != 'updateTime'))
+import java.util.Date;
+import com.alibaba.fastjson.annotation.JSONField;
+#break
+#end
+#end
+/**
+ * ${tableComment}表 ${tableName}
+ *
+ * @author ${author}
+ * @date ${datetime}
+ * @since ${datetime}
+ */
+public class ${className} extends BaseEntity {
+
+    private static final long serialVersionUID = 1L;
+#foreach ($column in $columns)
+    #if($column.lowAttrName != 'createBy' && $column.lowAttrName != 'createTime' && $column.lowAttrName != 'updateBy' && $column.lowAttrName != 'updateTime' && $column.lowAttrName != 'remark')
+    /**
+    * $column.columnComment
+    */
+    private $column.attrType $column.lowAttrName;
+    #end
+#end
+
+#foreach ($column in $columns)
+    #if($column.lowAttrName != 'createBy' && $column.lowAttrName != 'createTime' && $column.lowAttrName != 'updateBy' && $column.lowAttrName != 'updateTime' && $column.lowAttrName != 'remark')
+    public void set${column.attrName}($column.attrType $column.lowAttrName)
+            {
+            this.$column.lowAttrName = $column.lowAttrName;
+            }
+
+    public $column.attrType get${column.attrName}()
+            {
+            return $column.lowAttrName;
+            }
+    #end
+#end
+
+        @Override
+public String toString() {
+        return new ToStringBuilder(this,ToStringStyle.MULTI_LINE_STYLE)
+    #foreach ($column in $columns)
+            .append("${column.lowAttrName}", get${column.attrName}())
+    #end
+        .toString();
+        }
+}

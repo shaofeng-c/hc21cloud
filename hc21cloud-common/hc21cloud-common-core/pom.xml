@@ -86,6 +86,12 @@
             <version>1.9.4</version>
         </dependency>
         <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aop</artifactId>
+            <version>5.1.9.RELEASE</version>
+        </dependency>
+        <!-- aspectj-->
+        <dependency>
             <groupId>com.zaxxer</groupId>
             <artifactId>HikariCP</artifactId>
         </dependency>
@@ -97,9 +103,7 @@
             <groupId>com.chansf.hc21cloud</groupId>
             <artifactId>hc21cloud-common-config</artifactId>
             <version>1.0.0</version>
-            <scope>compile</scope>
         </dependency>
-        <!-- aspectj-->
     </dependencies>
 
 </project>

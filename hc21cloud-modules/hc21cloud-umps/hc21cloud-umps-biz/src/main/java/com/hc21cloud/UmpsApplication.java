@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.RestController;
 @EnableDiscoveryClient
 @Import(UmpsDynamicDataSourceRegister.class)
 public class UmpsApplication {
-
     public static void main(String[] args) {
         SpringApplication.run(UmpsApplication.class, args);
     }

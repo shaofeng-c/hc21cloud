@@ -1,8 +1,7 @@
 package com.hc21cloud.umps.web.frontend;
 
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.hc21cloud.common.core.support.BaseController;
+import com.hc21cloud.common.core.support.base.BaseController;
 
 /**
  * <p>

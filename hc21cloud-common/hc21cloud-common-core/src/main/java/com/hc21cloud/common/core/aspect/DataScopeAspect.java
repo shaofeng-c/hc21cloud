@@ -49,9 +49,6 @@ public class DataScopeAspect {
      */
     public static final String DATA_SCOPE = "dataScope";
 
-    /**
-     * 织入点
-     */
     @Pointcut("@annotation(com.hc21cloud.common.core.anno.DataScope)")
     public void dataScopePointCut() {
     }

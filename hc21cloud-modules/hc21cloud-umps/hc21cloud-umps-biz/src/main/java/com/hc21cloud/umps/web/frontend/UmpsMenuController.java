@@ -1,6 +1,6 @@
 package com.hc21cloud.umps.web.frontend;
 
-import com.hc21cloud.common.core.support.BaseController;
+import com.hc21cloud.common.core.support.base.BaseController;
 import org.springframework.web.bind.annotation.RestController;
 
 /**

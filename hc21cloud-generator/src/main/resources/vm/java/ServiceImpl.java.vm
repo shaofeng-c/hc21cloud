@@ -1,0 +1,46 @@
+package ${package}.service.impl;
+
+import java.util.List;
+
+import com.hc21cloud.common.core.support.base.BaseService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import ${package}.mapper.${className}Mapper;
+import ${package}.model.entity.${className};
+import ${package}.service.${className}Service;
+
+/**
+ * ${tableComment} 服务层实现
+ *
+ * @author ${author}
+ * @date ${datetime}
+ */
+@Service
+public class ${className}ServiceImpl extends BaseService<${className}Mapper> implements ${className}Service {
+
+    @Override
+    public ${className} selectById(${primaryKey.attrType} ${primaryKey.lowAttrName}) {
+        return baseMapper.selectById(${primaryKey.lowAttrName});
+    }
+
+    @Override
+    public List<${className}> selectList(${className} ${classname}) {
+        return baseMapper.selectList(${classname});
+    }
+
+    @Override
+    public int insert(${className} ${classname}) {
+        return baseMapper.insert(${classname});
+    }
+
+    @Override
+    public int update(${className} ${classname}) {
+        return baseMapper.update(${classname});
+    }
+
+    @Override
+    public int deleteById(${primaryKey.attrType} ${primaryKey.lowAttrName}) {
+        return baseMapper.deleteById(${primaryKey.lowAttrName});
+    }
+
+}

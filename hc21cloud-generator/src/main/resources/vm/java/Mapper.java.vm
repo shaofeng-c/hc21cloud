@@ -1,0 +1,49 @@
+package ${package}.mapper;
+
+import ${package}.model.entity.${className};
+import java.util.List;
+
+/**
+ * ${tableComment} DAO
+ *
+ * @author ${author}
+ * @date ${datetime}
+ * @since ${datetime}
+ */
+public interface ${className}Mapper {
+    /**
+     * selectById
+     *  @param ${primaryKey.lowAttrName} ${primaryKey.lowAttrName}
+     *  @return ${className}
+     */
+     ${className} selectById(${primaryKey.attrType} ${primaryKey.lowAttrName});
+
+     /**
+     * selectList
+     * @param ${classname} ${className}
+     * @return List
+     */
+    List<${className}> selectList(${className} ${classname});
+
+    /**
+    * insert
+    * @param ${classname} ${className}
+    * @return int
+    */
+    int insert(${className} ${classname});
+
+    /**
+    * update
+    * @param ${classname} ${className}
+    * @return int
+    */
+    int update(${className} ${classname});
+
+    /**
+    * 根据id删除信息
+    * @param ${primaryKey.lowAttrName} ${primaryKey.lowAttrName}
+    * @return int
+    */
+    int deleteById(${primaryKey.attrType} ${primaryKey.lowAttrName});
+
+}
