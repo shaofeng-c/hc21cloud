@@ -3,6 +3,7 @@ package com.hc21cloud.auth.handler;
 import com.alibaba.fastjson.JSONObject;
 import com.hc21cloud.common.core.util.RedisUtils;
 import com.hc21cloud.security.core.AuthUser;
+import com.hc21cloud.umps.service.UmpsUserRpcService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+
+import javax.annotation.Resource;
 
 /**
  * 默认的 UserDetailsService 实现
@@ -24,6 +27,8 @@ public class AuthUserDetailsServiceImpl implements UserDetailsService {
 
     @Autowired
     private RedisUtils redisUtils;
+    @Autowired
+    private UmpsUserRpcService umpsUserRpcService;
 
     /**
      * Load user by username user details.
@@ -37,6 +42,7 @@ public class AuthUserDetailsServiceImpl implements UserDetailsService {
         AuthUser authUser = JSONObject.parseObject(JSONObject.toJSONString(redisUtils.get(username)), AuthUser.class);
         if (authUser==null) {
             // TODO: 获取user
+            System.out.println(umpsUserRpcService.userInfo(username));
         }
         return authUser;
     }
