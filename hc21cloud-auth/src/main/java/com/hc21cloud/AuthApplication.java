@@ -1,20 +1,24 @@
 package com.hc21cloud;
 
-import com.hc21cloud.security.client.anno.EnableHcResourceServer;
+import com.hc21cloud.common.core.util.RedisUtils;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.context.annotation.Bean;
 
 /**
- * 代码生成模块启动类
- *
  * @author shaofeng
  */
 @SpringBootApplication
 @EnableDiscoveryClient
-@EnableHcResourceServer
-public class UmpsApplication {
+public class AuthApplication {
+
     public static void main(String[] args) {
-        SpringApplication.run(UmpsApplication.class, args);
+        SpringApplication.run(AuthApplication.class);
+    }
+
+    @Bean
+    public RedisUtils redisUtils() {
+        return new RedisUtils();
     }
 }

@@ -1,0 +1,9 @@
+spring:
+  # nacos 配置
+  cloud:
+    nacos:
+      config:
+        namespace: fa60c201-669c-4abe-a833-3217044a62dc
+      # 服务发现注册
+      discovery:
+        namespace: ${spring.cloud.nacos.config.namespace}

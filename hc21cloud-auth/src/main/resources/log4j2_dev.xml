@@ -11,8 +11,8 @@
         <!-- %logger{36} 表示 Logger 名字最长36个字符 -->
         <property name="LOG_PATTERN" value="%date{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"/>
         <!-- 定义日志存储的路径，不要配置相对路径 -->
-        <property name="FILE_PATH" value="./logs/umps/dev"/>
-        <property name="FILE_NAME" value="umps"/>
+        <property name="FILE_PATH" value="./logs/auth/dev"/>
+        <property name="FILE_NAME" value="auth"/>
     </Properties>
 
     <appenders>
@@ -77,7 +77,7 @@
     <!--Logger节点用来单独指定日志的形式，比如要为指定包下的class指定不同的日志级别等。-->
     <!--然后定义loggers，只有定义了logger并引入的appender，appender才会生效-->
     <loggers>
-<!--        过滤掉spring和mybatis的一些无用的DEBUG信息-->
+        <!--过滤掉spring和mybatis的一些无用的DEBUG信息-->
         <logger name="org.mybatis" level="info" additivity="false">
             <AppenderRef ref="Console"/>
         </logger>
