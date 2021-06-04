@@ -37,7 +37,7 @@
         <commons.fileupload.version>1.3.3</commons.fileupload.version>
         <useragent.version>1.21</useragent.version>
         <jjwt.version>0.9.1</jjwt.version>
-        <httpClient.version>4.5.5</httpClient.version>
+        <httpClient.version>4.5.13</httpClient.version>
         <fastjson.version>1.2.56</fastjson.version>
     </properties>
 
